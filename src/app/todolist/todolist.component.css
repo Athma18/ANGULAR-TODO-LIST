@@ -12,10 +12,6 @@ color: blue;
     justify-content: center;
     padding: 20px;;
 }
-.colname{
-    padding-top: 12px;
-}
-
 .row{
     width: 60%;
     height: 80px;
@@ -26,11 +22,6 @@ color: blue;
     justify-content: space-between;
 
     
-}
-.id{
-    display: flex;
-    padding-left: 20px;
-
 }
 ul{
     list-style-type:none;

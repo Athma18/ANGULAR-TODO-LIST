@@ -1,59 +1,70 @@
-# TODOLIST
+//define properties in ts file
+task="" & tasklist:{id:number,name:string}[]=[]
+//create input field and button 
+  when added it should be added to the task --so bind input field with task property - use two way binding (ngModel)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+//  For using ngModels and all - import Form Controls Module in app.module.ts
 
-## Development server
+//in input tag [(ngModel)]="task" - now both are binded
 
-To start a local development server, run:
+//now when we change in text field we willget the update in task, if we print {{task}}
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+//////////////////////////////
+for button
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+//in button click the value from the input field should be added to the task list
 
-```bash
-ng generate component component-name
-```
+1.create a click event in button (click)="addTask()
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2.addTask(){
+    this.taskList.push({id:this.taskList.length+1,name:this.task})
 
-```bash
-ng generate --help
-```
+    console -this.taskList to check...
+}
 
-## Building
+3.now this lists should visible on frontend
 
-To build the project run:
+@for(task of taskList; track task.id){
+  <h1>{{task.name}}</h1>
+}
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+/////////////////////////////////
 
-## Running unit tests
+task=""
+list:{id:number,name:string}
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+input tag  -- 2 way -- [ngModel]=task  -- form control module in app.module.ts --doubt
 
-```bash
-ng test
-```
+{{task}}-- optional to check
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+button (click)="add()"
 
-## Additional Resources
+add(){
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  this.list.push({id:this.list.length+1,name:this.list.task})
+
+
+}
+
+@for(task of list;track task.id){
+  <h1>{{task.name}}</h1>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
