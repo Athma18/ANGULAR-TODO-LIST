@@ -1,50 +1,57 @@
 <div>
-    <h1>TO-DO-LIST</h1>
+  <h1>TO-DO-LIST</h1>
 </div>
 
 
 <div class="container">
   <div class="subcontainer">
-    <input [(ngModel)]="task"  type="text" placeholder="What would you like to do today ?">
-    <button *ngIf="editIndex === null " (click)="addTask()">Add</button>
-    <button *ngIf="editIndex !== null" (click)="updateTask()">Update</button>
-    <app-button></app-button>
+    <input [(ngModel)]="task" type="text" placeholder="What would you like to do today ?">
 
+    <app-button *ngIf="editIndex === null "  label="Add" type="add" (buttonClick)="addTask()"></app-button>
+    <app-button *ngIf="editIndex !== null"  label="Update" type="update" (buttonClick)="updateTask()"></app-button>
+
+ 
   </div>
-  
+
+<div>
 
 
-<ul>
-  @for(task of taskList; track task.id){
-   
-    <li  >
-      <div class="subcontainer">
-        
-        <div class="row">
-          <div class="id">
-            <div><h1>{{task.id}} .</h1></div>
-         
-            <div class="colname">
-              <p>{{task.name}}</p>
-  
-          </div>
-          </div>
 
-           
-            <div class="colfunctions">
-                <div class="col">
-                    <button (click)="editTask(task.id-1)">Edit</button>
-                </div>
-                <div class="col">
-                    <button (click)="deleteTask(task.id)">Delete</button>
-                </div>
-            </div>
+  <ul>
     
-        </div>
-      </div>
-    </li>
-  }
-  
-</ul>
      
+      <li  >
+        @for(task of taskList; track task.id){
+        <div class="subcontainer">
+          
+          <div class="row">
+            <div class="id">
+              <div><h1>{{task.id}} .</h1></div>
+           
+              <div class="colname">
+                <p>{{task.name}}</p>
+    
+            </div>
+            </div>
+  
+             
+              <div class="colfunctions">
+                  <div class="coledit">
+                      <app-button (click)="editTask(task.id-1)" label="Edit" type="edit" >Edit</app-button>
+                  </div>
+                  <div class="col">
+                      <button (click)="deleteTask(task.id)" label="Delete" type="delete">Delete</button>
+                  </div>
+              </div>
+      
+          </div>
+        </div>
+    }
+  </li>
+
+    
+  </ul>
+
+</div>
+
 </div>

@@ -57,6 +57,18 @@ add(){
 }
 
 
+///data passing from parent to child component 
+  1.@Input()
+
+
+  /// from child to parent 
+  2. @Output() decorator and EventEmitter
+
+  event emitter is smthing that have the capacity to propogate data from child to parent
+
+  
+
+
 
 
 

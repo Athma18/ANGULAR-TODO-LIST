@@ -13,17 +13,18 @@ color: blue;
     padding: 20px;;
 }
 .colname{
-    padding-top: 12px;
+    padding-top: 5px;
+    
 }
 
 .row{
-    width: 60%;
+    width: 50%;
     height: 80px;
     background-color: rgb(253, 253, 252);
     margin-top: 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between
 
     
 }
@@ -36,8 +37,12 @@ ul{
     list-style-type:none;
 }
 p{
+    padding-top: 7px;
     padding-left: 40px;
      font-size: larger; 
+}
+.coledit{
+    padding-top: 6px;
 }
 .colfunctions{
     display: flex;
@@ -59,6 +64,21 @@ button{
 input{
     width: 300px;
 }
+.add {
+    background-color: green;
+    color: white;
+  }
+  
+  .edit {
+    background-color: blue;
+    color: white;
+  }
+  
+  .delete {
+    background-color: red;
+    color: white;
+  }
+  
 
 
 

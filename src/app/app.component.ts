@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
+
 @Component({
   selector: 'app-root',
   imports: [FormsModule,CommonModule,ButtonComponent],
@@ -10,7 +11,7 @@ import { ButtonComponent } from './button/button.component';
 })
 export class AppComponent {
   title="fjrkfj";
-  task="";
+  task:string="";
   taskList:{id:number,name:string}[]=[]
  
  addTask(){
@@ -21,6 +22,16 @@ export class AppComponent {
    }
    
  }
+
+ handleAction(action: 'add' | 'edit' | 'delete') {
+  if (action === 'add') {
+    this.addTask();
+  } else if (action === 'edit' && this.editIndex !== null) {
+    this.updateTask();
+  }
+}
+
+
 
  deleteTask(id:number){
 
