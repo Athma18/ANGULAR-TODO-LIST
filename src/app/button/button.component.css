@@ -12,14 +12,14 @@ button {
   }
 
 .add {
-    background-color:blue;
+    background-color:rgb(102, 102, 140);
     color: white;
     border: none;
     padding: 10px 15px;
   }
   
   .edit {
-    background-color: blue;
+    background-color: rgb(74, 5, 38);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -27,14 +27,14 @@ button {
   
   .delete {
 
-    background-color:blue;
+    background-color:rgb(216, 96, 21);
     color: white;
     border: none;
     padding: 10px 15px;
   }
 
   .update{
-    background-color:blue;
+    background-color:rgb(13, 13, 14);
     color: white;
     border: none;
     padding: 10px 15px;

@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
+import { ListComponent } from "./list/list.component";
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule,CommonModule,ButtonComponent],
+  imports: [FormsModule, CommonModule, ButtonComponent, ListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -64,6 +65,8 @@ updateTask() {
     this.taskList[this.editIndex].name = this.task;
       this.editIndex = null; 
    this.task = ""; 
+
+
   }
  
 }

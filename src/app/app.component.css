@@ -5,7 +5,7 @@ text-align: center;}
 
 h1{
 text-align: center;
-color: blue;
+color: rgb(221, 140, 27);
 }
 .subcontainer{
     display: flex;

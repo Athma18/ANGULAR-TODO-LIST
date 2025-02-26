@@ -1,0 +1,63 @@
+.container{
+    background-color: rgb(249, 245, 245);
+     height: max-content;   
+text-align: center;}
+
+h1{
+text-align: center;
+color: rgb(5, 5, 5);
+}
+.subcontainer{
+    display: flex;
+    justify-content: center;
+    padding: 20px;;
+}
+.colname{
+    padding-top: 5px;
+    
+}
+
+.row{
+    width: 50%;
+    height: 80px;
+    background-color: rgb(253, 253, 252);
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+
+    
+}
+.id{
+    display: flex;
+    padding-left: 20px;
+
+}
+ul{
+    list-style-type:none;
+}
+p{
+    padding-top: 7px;
+    padding-left: 40px;
+     font-size: larger; 
+}
+.coledit{
+    padding-top: 6px;
+}
+.col{
+    padding-top: 6px;
+}
+.colfunctions{
+    display: flex;
+    padding-right: 40px;
+}
+
+input{
+    width: 300px;
+}
+
+
+
+
+
+

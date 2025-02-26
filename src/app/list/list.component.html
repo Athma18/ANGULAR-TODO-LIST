@@ -1,1 +1,38 @@
-<p>list works!</p>
+
+    <ul>
+      
+       
+        <li  >
+          @for(task of taskList; track task.id){
+
+
+          <div class="subcontainer">
+            
+            <div class="row">
+              <div class="id">
+                <div><h1>{{task.id}} . </h1></div>
+             
+                <div class="colname">
+                  <p>{{task.name}}</p>
+      
+              </div>
+              </div>
+                   
+               
+                <div class="colfunctions">
+                    <div class="coledit">
+                        <app-button (buttonClick)="handleEdit(task.id-1)" label="Edit" type="edit" >Edit</app-button>
+                    </div>
+                    <div class="col">
+                        <app-button (buttonClick)="handleDelete(task.id)" label="Delete" type="delete">Delete</app-button>
+                    </div>
+                </div>
+        
+            </div>
+          </div>
+      }
+    </li>
+  
+      
+    </ul>
+  

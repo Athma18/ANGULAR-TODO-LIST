@@ -13,45 +13,9 @@
  
   </div>
 
-<div>
+  <app-list [taskList]="taskList" (deleteTask)="deleteTask($event)" (editTask)="editTask($event)"></app-list>
 
 
-
-  <ul>
-    
-     
-      <li  >
-        @for(task of taskList; track task.id){
-        <div class="subcontainer">
-          
-          <div class="row">
-            <div class="id">
-              <div><h1>{{task.id}} .</h1></div>
-           
-              <div class="colname">
-                <p>{{task.name}}</p>
-    
-            </div>
-            </div>
-  
-             
-              <div class="colfunctions">
-                  <div class="coledit">
-                      <app-button (click)="editTask(task.id-1)" label="Edit" type="edit" >Edit</app-button>
-                  </div>
-                  <div class="col">
-                      <button (click)="deleteTask(task.id)" label="Delete" type="delete">Delete</button>
-                  </div>
-              </div>
-      
-          </div>
-        </div>
-    }
-  </li>
-
-    
-  </ul>
 
 </div>
 
-</div>
