@@ -40,9 +40,6 @@ export class AppComponent {
 
   this.updateSN();
 
-
-
-
  }
  updateSN() {
   this.taskList = this.taskList.map((task, index) => ({
@@ -61,16 +58,15 @@ editTask(index: number) {
 
 
 updateTask() {
+  
   if (this.editIndex !== null && this.task.trim() ) {
-    this.taskList[this.editIndex].name = this.task;
-      this.editIndex = null; 
-   this.task = ""; 
+
+  this.taskList[this.editIndex].name = this.task;
+    
 
 
-  }
- 
+  } 
+  this.editIndex = null; 
+  this.task = ""; 
 }
-
-
-
  }
