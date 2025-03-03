@@ -66,6 +66,69 @@ add(){
 
   event emitter is smthing that have the capacity to propogate data from child to parent
 
+
+
+
+
+///Services
+
+//is a class with specific purpose
+
+//share data among multiple component
+//implememt appli logic
+//external interaction - db connection
+
+
+//install
+ 1. ng g s name_of_service
+ 2. higherarchical DI
+ 3. register service
+ 4. in spp.ts-> include service in providers array
+ 5. also import
+ 6. ngOnInit
+ 7.  
+
+ @Injectable Decorator -if we want to inject a service into another service , we must have , injectable decorator
+
+ this decoratoer will tell angular it itself have injected dependencies
+
+
+ @compoenents have compoent decorator that make angular know it might have depedency and use
+
+ //////////////////////
+
+ //Why service required
+ eg:display list
+ app module -- app component
+ app html --employee list component
+ empl list cpmponent ts - array of employee, id, name, age
+ empl list ts..--> templatl = ngfor display list
+
+ // in a seperate view display details of each list
+
+ create employee detail component
+ ts, -- ngfor  display id , name , age
+
+ but in class we dont have employee array , 
+
+
+ //code principles
+ ----------------------
+ Donot repeat yourself
+ single responsible principle
+
+ 
+
+
+
+
+
+
+
+
+
+
+
   
 
 

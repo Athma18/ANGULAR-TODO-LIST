@@ -1,0 +1,22 @@
+<div>
+    <h1>TO-DO-LIST</h1>
+  </div>
+  
+  
+  <div class="container">
+    <div class="subcontainer">
+      <input [(ngModel)]="task" type="text" placeholder="What would you like to do today ?">
+  
+      <app-button *ngIf="editIndex === null "  label="Add" type="add" (buttonClick)="addTask()"></app-button>
+      <app-button *ngIf="editIndex !== null"  label="Update" type="update" (buttonClick)="updateTask()"></app-button>
+  
+   
+    </div>
+  
+    <app-list [taskList]="taskList" (deleteTask)="deleteTask($event)" (editTask)="editTask($event)"></app-list>
+  
+  
+  
+  </div>
+  
+  
