@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input,  Output } from '@angular/core';
+import { TodoService } from '../services/todo.service';
 
 
 //import CommonModule, Component, EventEmitter, Input, Output from '@angular/core';
@@ -13,11 +14,13 @@ import { Component, EventEmitter, Input,  Output } from '@angular/core';
 })
 export class ButtonComponent {
   title="child"
+  taskList:{id:number,name:string}[]=[]
+
   @Input() label: string = 'Button'; 
   @Input() type: 'add' | 'edit' | 'delete' | 'update'= 'add'; 
   @Output() buttonClick = new EventEmitter<void>(); 
          
-  constructor() {}
+  constructor(public todoService: TodoService) {}
 
   handleClick() {
 
@@ -25,3 +28,4 @@ export class ButtonComponent {
   }
 
 }
+

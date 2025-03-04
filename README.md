@@ -117,7 +117,31 @@ add(){
  Donot repeat yourself
  single responsible principle
 
- 
+
+ ///////////////
+
+ 1.ng generate service services/Todo
+ 2. from totdolist compoent ts take all states and paste on servic
+ 3. copy all functions and save in services after constructor
+4. in todolist compon , in providers include services
+5. in home ts , add inject in angular/core import 
+import {Component, inject} from '@angular/core';
+6.  
+
+
+
+
+
+
+
+//@Injectable decorators - 
+//if we want to inject a service into another service , we must have , injectable decorator
+/////to mark a service as injectable
+
+
+//injectinga service in constructor of the component
+
+//parameters of service type added in component constructor
 
 
 

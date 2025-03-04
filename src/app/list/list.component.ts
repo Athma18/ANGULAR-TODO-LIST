@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-list',
@@ -9,12 +10,13 @@ import { ButtonComponent } from '../button/button.component';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
+    constructor(public todoService: TodoService) {}
+  
 
   @Input() taskList: { id: number; name: string }[] = [];
 
   @Output() deleteTask = new EventEmitter<number>();
   @Output() editTask = new EventEmitter<number>();
-  constructor() {}
 
   
   
