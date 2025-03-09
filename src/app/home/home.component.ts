@@ -5,6 +5,7 @@ import { ButtonComponent } from '../button/button.component';
 import { ListComponent } from '../list/list.component';
 import { TodoService } from '../services/todo.service';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -36,13 +37,11 @@ export class HomeComponent {
 
 
   updateTask() {
-    if (this.todoService.editIndex !== null) {
+      if (this.todoService.editIndex !== null) {
       this.todoService.updateTask(this.task);
       this.task = '';
+
     }
   }
-
- 
-
  
 }

@@ -1,0 +1,169 @@
+<div class="main">
+    <div class="container">
+        <h1>Register Here !</h1>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" action="">
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Enter Full Name</mat-label>
+                        <input  formControlName="name"  matInput placeholder="Ex. Athma" value="" required>
+                      
+                    </mat-form-field>
+                    <div style="color: red;" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+                        Name is Required!
+                      </div>
+                                           
+                </div>
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input  formControlName="email" type="email" matInput  [errorStateMatcher]="matcher"
+                               placeholder="Ex. pat@example.com" required>
+                              
+                      </mat-form-field>
+                      <div style="color: red;" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                        Enter a valid Email!
+                      </div>
+                     
+                    </div>
+                </div>
+                
+                <div class="p-2 bd-highlight"><mat-form-field class="example-full-width">
+                    
+                        <mat-label>Enter your password</mat-label>
+                        <input formControlName="pass1"  matInput [type]="hide() ? 'password' : 'text'" required>
+                        <button
+                        type="button"
+                          mat-icon-button
+                          matSuffix
+                          (click)="clickEvent($event)"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide()"
+                        >
+                          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                       
+
+
+                          <p *ngIf="pass1?.invalid && pass1?.touched" style="color: red;">
+                            {{ pass1?.hasError('required') ? 'Password is required' : 'Password must be at least 6 characters' }}
+                          </p>
+                    
+                    
+                      </mat-form-field>
+                                  
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Confirm your password</mat-label>
+                         
+                        <input  formControlName="pass2"  matInput [type]="hide() ? 'password' : 'text'" required>
+                       
+                        <button
+                        type="button"
+                          mat-icon-button
+                          matSuffix
+                          (click)="clickEvent($event)"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide()"
+                        >
+                          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="pass2?.hasError('required') && pass2?.touched">
+                            Confirm Password is required
+                          </mat-error>
+                          <mat-error *ngIf=" userForm.errors?.['passwordsMismatch'] && pass2?.touched">
+                            Passwords do not match
+                          </mat-error>
+                      
+                      </mat-form-field>
+                                 
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Phone Number</mat-label>
+                        <input formControlName="phone"  name="phone" type="number" matInput placeholder="+91 6709290202" value="" required>
+                        <p *ngIf="phoneControl?.invalid && phoneControl?.touched" style="color: red;">
+                            {{ phoneControl?.hasError('required') ? 'Phone number is required' : 'Phone number must be exactly 10 digits' }}
+                          </p>
+
+                    </mat-form-field>
+                         
+                   
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender"  required>
+                          @for (food of foods; track food) {
+                            <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                          }
+                        </mat-select>
+                        
+                      
+                  </mat-form-field>
+                
+                  
+                </div> 
+    
+                <div class="p-2 bd-highlight">
+    
+                    <section class="example-section1 p-2 bd-highlight">
+                        <span class="example-list-section">
+                          <mat-checkbox
+                          
+
+                            class="example-margin"
+                            [checked]="task().completed"
+                            [indeterminate]="partiallyComplete()"
+                            (change)="update($event.checked)"
+                          >
+                            {{task().name}}
+                          </mat-checkbox>
+                        </span>
+                        <span class="example-list-section">
+                          <ul>
+                            @for (subtask of task().subtasks; track subtask; let i = $index) {
+                              <li>
+                                <mat-checkbox 
+                                formControlName="hobbies" 
+
+                               [checked]="subtask.completed" (change)="update($event.checked, i)">
+                                  {{subtask.name}}
+                                </mat-checkbox>
+                              </li>
+                            }
+                          </ul>
+                        </span>
+                      </section>
+    
+                </div>  
+                
+                <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                        <mat-label>Select Your Country</mat-label>
+                        <mat-select  formControlName="country"  [(value)]="selected">
+                          <mat-option>None</mat-option>
+                          <mat-option value="India">India</mat-option>
+                          <mat-option value="USA">USA</mat-option>
+                          <mat-option value="UK">UK</mat-option>
+                          <mat-option value="Canada">Canada</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                      
+                      <p>You selected: {{selected}}</p>
+                      
+                
+                  
+                </div> 
+                
+              
+
+              <button type="submit"  >Register</button>
+        </form>
+
+    </div>
+
+  
+</div>

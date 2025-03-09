@@ -1,0 +1,79 @@
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+  }
+  
+  .example-full-width {
+    width: 70%;
+
+  }
+
+
+  
+  
+  .example-container  {
+    margin-left: 8px;
+    background-color: white; 
+  }
+  
+  .example-right-align {
+    text-align: right;
+    
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+   input.example-right-align {
+    -moz-appearance: textfield;
+  }
+ 
+
+  .example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }
+  
+
+ 
+  
+  .container{
+   
+    width: 50%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+  }
+
+
+h1{
+    color: rgb(161, 92, 224);
+    padding-left: 20px;
+}
+button{
+    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+    background-color: rgb(161, 92, 224);
+    width: 30%;
+    color: aliceblue;
+    padding: 10px;
+    margin-right: 50px;
+
+}
+  
+
+
+
+  
+  
+ 

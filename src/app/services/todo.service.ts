@@ -19,7 +19,9 @@ export class TodoService {
   }
 
   editTask(index: number) {
+
     this.editIndex = index;
+    
   }
 
   updateTask(task: string) {

@@ -3,9 +3,7 @@ import { Component, EventEmitter, Input,  Output } from '@angular/core';
 import { TodoService } from '../services/todo.service';
 
 
-//import CommonModule, Component, EventEmitter, Input, Output from '@angular/core';
-//Common module is for using ngFor , ngIf - directives
-//Compoents- standalone property
+
 @Component({
   selector: 'app-button',
   imports: [CommonModule],

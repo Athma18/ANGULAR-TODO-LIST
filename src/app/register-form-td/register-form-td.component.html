@@ -1,0 +1,192 @@
+
+        
+
+
+
+<div class="main">
+    <div class="container">
+        <h1>Register Here !</h1>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" action="">
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Enter Full Name</mat-label>
+                        <input #name="ngModel" name="name" [(ngModel)]="user.name" matInput placeholder="Ex. Athma" value="" required>
+                    </mat-form-field>
+                                           
+                </div>
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input #email="ngModel" [(ngModel)]="user.email" name="email" type="email" matInput  [errorStateMatcher]="matcher"
+                               placeholder="Ex. pat@example.com" required>
+                       
+                      </mat-form-field>
+                     
+                    </div>
+                </div>
+                
+                <div class="p-2 bd-highlight"><mat-form-field class="example-full-width">
+                    
+                        <mat-label>Enter your password</mat-label>
+                        <input #pass1="ngModel" [(ngModel)]="user.pass1" name="pass1" matInput [type]="hide() ? 'password' : 'text'" required>
+                        <button
+                        type="button"
+                          mat-icon-button
+                          matSuffix
+                          (click)="clickEvent($event)"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide()"
+                        >
+                          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+                                  
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Confirm your password</mat-label>
+                        <input #pass2="ngModel" [(ngModel)]="user.pass2" name="pass2" matInput [type]="hide() ? 'password' : 'text'" required>
+                        <button
+                        type="button"
+                          mat-icon-button
+                          matSuffix
+                          (click)="clickEvent($event)"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide()"
+                        >
+                          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+                                 
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Phone Number</mat-label>
+                        <input #phone="ngModel" [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="+91 6709290202" value="" required>
+                    </mat-form-field>
+                         
+                   
+                </div> 
+                <div class="p-2 bd-highlight">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Gender</mat-label>
+                        <mat-select #gender="ngModel" [(ngModel)]="user.gender" name="gender" required>
+                          @for (food of foods; track food) {
+                            <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                          }
+                        </mat-select>
+                        
+                      
+                  </mat-form-field>
+                
+                  
+                </div> 
+    
+                <div class="p-2 bd-highlight">
+    
+                    <section class="example-section1 p-2 bd-highlight">
+                        <span class="example-list-section">
+                          <mat-checkbox
+                         
+          
+                            class="example-margin"
+                            [checked]="task().completed"
+                            [indeterminate]="partiallyComplete()"
+                            (change)="update($event.checked)"
+                          >
+                            {{task().name}}
+                          </mat-checkbox>
+                        </span>
+                        <span class="example-list-section">
+                          <ul>
+                            @for (subtask of task().subtasks; track subtask; let i = $index) {
+                              <li>
+                                <mat-checkbox [(ngModel)]="user.hobbies.subtasks[i]"
+                                name="subtask{{i}}"
+                                #subtask="ngModel"
+                               [checked]="subtask.completed" (change)="update($event.checked, i)">
+                                  {{subtask.name}}
+                                </mat-checkbox>
+                              </li>
+                            }
+                          </ul>
+                        </span>
+                      </section>
+    
+                </div>  
+                
+                <div class="p-2 bd-highlight">
+                    <mat-form-field>
+                        <mat-label>Select Your Country</mat-label>
+                        <mat-select #country="ngModel" [(ngModel)]="user.country" name="country" [(value)]="selected">
+                          <mat-option>None</mat-option>
+                          <mat-option value="India">India</mat-option>
+                          <mat-option value="USA">USA</mat-option>
+                          <mat-option value="UK">UK</mat-option>
+                          <mat-option value="Canada">Canada</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                      
+                      <p>You selected: {{selected}}</p>
+                      
+                
+                  
+                </div> 
+                
+              
+
+              <button type="submit"  >Register</button>
+        </form>
+
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

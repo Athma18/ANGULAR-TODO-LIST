@@ -23,10 +23,13 @@ export class ListComponent {
 
   handleDelete(id: number) {
     this.deleteTask.emit(id);
+
   }
 
   handleEdit(index: number) {
-    this.editTask.emit(index);
-  }  
 
+    this.editTask.emit(index);
+
+    
+}  
 }
