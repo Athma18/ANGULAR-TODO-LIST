@@ -38,7 +38,7 @@ interface Food {
 
 export class RegisterFormRFComponent {
   userForm: FormGroup;
-  constructor(public fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -51,30 +51,43 @@ export class RegisterFormRFComponent {
       country:['', [Validators.required]]
 
     },
-    { validators: this.passwordMatchValidator }
-  );
-  this.userForm.get('pass2')?.valueChanges.subscribe(() => {
-    this.userForm.updateValueAndValidity();
-  });
+    { validators: this.passwordsMatchValidator });
+  
+
   }
-  get pass1() {
-    return this.userForm.get('pass1');
+  passwordsMatchValidator(group: FormGroup) {
+    const pass1 = group.get('pass1')?.value;
+    const pass2 = group.get('pass2')?.value;
+    return pass1 === pass2 ? null : { passwordsMismatch: true };
   }
 
-  get pass2() {
-    return this.userForm.get('pass2');
+  isInvalid(field: string): boolean {
+    return this.userForm.controls[field].invalid && this.userForm.controls[field].touched;
   }
+
+  getErrorMessage(field: string): string {
+    if (this.userForm.controls[field].hasError('required')) {
+      return 'Enter a password';
+    }
+    if (this.userForm.controls[field].hasError('minlength')) {
+      return 'Password must be at least 6 characters';
+    }
+    if (this.userForm.hasError('passwordsMismatch')) {
+      return 'Passwords do not match';
+    }
+    return '';
+  }
+
+
+
 
 
   get phoneControl() {
     return this.userForm.get('phone');
   }
 
-  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const pass1 = control.get('pass1')?.value;
-    const pass2 = control.get('pass2')?.value;
-    return pass1 === pass2 ? null : { passwordsMismatch: true };
-  }
+
+
 
 
   onSubmit() {

@@ -632,6 +632,80 @@ BootSTRAP Implementation
 
 
 
+///////////////////
+TEMPLATE DRIVEN FORMS
+-------------------------------------
+using angular directives ngModel 
+
+1. create input firlds -textbox in form tag
+2. directives are used to bind data to form fields
+    #anyvariable ="ngForm" 
+    (ngSubmit)="onSubmit(form)"
+
+3. form fields are bound to the form using ngModel directive
+      #name="name" [(ngModel)]=user.name
+      #email="email"
+ts. file
+4. user:any={
+  name:'',
+  email:'',
+}
+onsubmit() -- 
+if !valid -fill all field
+
+every()- true if all element matches the condition
+
+parameters- currentvalue, index,array
+
+array.every(num=>num >0)
+
+==> numbers dont have length property
+
+//////////////////////////////
+REACT FORMS
+---------------------
+
+Uses FormGroup and FormControl in ts.
+easy for dynamic form control handling
+
+1.import raectiveformsmodule
+2.import formsbuilder - hrlp to generate schema
+inside constructor privte fb
+3.schema generated 
+group il shcmea generate
+
+4.to build a relation between ts and html
+   use directive named  [formgroup]="schema name" thst is userForm
+
+5. to identify form fields we use directive form controlname
+#name="name" [formControlName]="name"
+
+
+1. bind form to form group
+2. formgroup holds multiple form fields and tract validity , values etc
+
+3. it connect html form with ts class
+
+4.formControlName=
+
+4.ts. file
+
+userform= neq FormGroup({
+  name: new FormControl('',validators)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

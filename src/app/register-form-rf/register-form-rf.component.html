@@ -43,13 +43,10 @@
                           <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                        
+                        <mat-error *ngIf="isInvalid('pass1')">{{ getErrorMessage('pass1') }}</mat-error>
 
 
-                          <p *ngIf="pass1?.invalid && pass1?.touched" style="color: red;">
-                            {{ pass1?.hasError('required') ? 'Password is required' : 'Password must be at least 6 characters' }}
-                          </p>
-                    
-                    
+                        
                       </mat-form-field>
                                   
                 </div> 
@@ -69,14 +66,13 @@
                         >
                           <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="pass2?.hasError('required') && pass2?.touched">
-                            Confirm Password is required
-                          </mat-error>
-                          <mat-error *ngIf=" userForm.errors?.['passwordsMismatch'] && pass2?.touched">
-                            Passwords do not match
-                          </mat-error>
+                        <mat-error *ngIf="isInvalid('pass2')">{{ getErrorMessage('pass2') }}</mat-error>
+           
                       
                       </mat-form-field>
+                      <div *ngIf="userForm.hasError('passwordsMismatch')" class="error-message">
+                        Passwords do not match!
+                      </div>
                                  
                 </div> 
                 <div class="p-2 bd-highlight">
