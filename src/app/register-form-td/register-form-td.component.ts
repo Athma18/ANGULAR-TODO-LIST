@@ -152,8 +152,6 @@ export class RegisterFormTDComponent {
       alert('Registration successful');
      
     
-    
-    
     }
 
 }

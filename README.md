@@ -71,6 +71,15 @@
                 alert(data)
             }
 
+            html to ts
+            ----------
+            button
+            -(click)="clearBtn("data cleared");
+
+            clearBtn(data:any){
+              alert(data);
+            }
+
 //TWO WAY DATA BINDING
 
  //1. combining property binding[] with event binding() with ngModel makes 2 way data binding
@@ -243,10 +252,10 @@ track - uniquely identify list using id
 
  //////////////////////
 
-
- //import CommonModule, Component, EventEmitter, Input, Output from '@angular/core';
+//import CommonModule, Component, EventEmitter, Input, Output from '@angular/core';
 //Common module is for using ngFor , ngIf - directives
 //Compoents- standalone property - no need for ngModule
+
 
 
  //Why service required
@@ -635,12 +644,16 @@ BootSTRAP Implementation
 ///////////////////
 TEMPLATE DRIVEN FORMS
 -------------------------------------
+
+import formmodule
 using angular directives ngModel 
+template referece variable
 
 1. create input firlds -textbox in form tag
 2. directives are used to bind data to form fields
     #anyvariable ="ngForm" 
     (ngSubmit)="onSubmit(form)"
+    ngsubmit is trigerred when form is submitted and form itself is given as an argument.
 
 3. form fields are bound to the form using ngModel directive
       #name="name" [(ngModel)]=user.name
@@ -664,6 +677,7 @@ array.every(num=>num >0)
 //////////////////////////////
 REACT FORMS
 ---------------------
+import Reactiveformmodule
 
 Uses FormGroup and FormControl in ts.
 easy for dynamic form control handling
@@ -690,9 +704,113 @@ group il shcmea generate
 
 4.ts. file
 
-userform= neq FormGroup({
-  name: new FormControl('',validators)
+userForm=formgroup;
+constructor(private fb:FormBuilder){
+this.userform= this.fb.group({
+
+  
 })
+}
+
+
+//////////////////////////////////
+
+array methods
+--------------
+immutabe
+------------
+
+1.map (element,index,array)
+
+2.filter (element,index,array)
+
+3.reduce( accumulator,currentvalue, index,array)
+
+4.slice(start index, end -index)
+
+
+mutable
+--------------
+
+array.push(element to e added)
+array.pop()
+array.splice(startindex, deletecount,item1,itrm2,..) at specific index add, remove, replace
+array.sort(compareFunction)
+
+
+
+////////////////////////////////////////
+CommonModule
+--------------
+to use ngIf , ngFor -commonly used directives in standalone compoennt
+--------------------------------------------------------
+
+
+
+
+(click)="func($event)"
+event.target.value
+#refvariable - 
+button(refvar)
+
+////////////////////////////////////////////////////////////////
+HTTPClientModule -that provide get,post
+---------------------
+import { HttpClient } from '@angular/common/http';
+constructor(private http: HttpClient) { }
+----------------------------
+
+
+settingup httpclient
+--------------------
+
+1.import { HttpClientModule } from '@angular/common/http';
+in feature module
+imports:[]
+
+making http request
+----------------------
+
+1.create a service
+ng generate service name
+
+2.inject httpclient in service
+import { HttpClient } from '@angular/common/http';
+
+constructor(private http: HttpClient) { }
+private apiurl='/sdxjhwdu';
+
+getData():Observable<any>{
+  return this.http.get(this.apiurl)
+}
+
+get,post,put,delete
+
+
+-----------------------
+handling response
+------------------
+
+httpclient returns an observable
+in component inside ngoninit
+this.datservice.getData().subscribe(data=>{
+  this.data=data;
+})
+
+app. providers- il provide Httpclient()
+
+
+/////////////////////////
+
+
+interceptors
+------------------
+
+
+
+
+
+
 
 
 

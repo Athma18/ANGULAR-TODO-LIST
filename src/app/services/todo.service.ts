@@ -11,6 +11,7 @@ export class TodoService {
     if (task.trim() !== '') {
       this.taskList.push({ id: this.taskList.length + 1, name: task });
     }
+    
   }
 
   deleteTask(id: number) {

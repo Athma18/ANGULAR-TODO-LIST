@@ -32,6 +32,7 @@
                     
                         <mat-label>Enter your password</mat-label>
                         <input formControlName="pass1"  matInput [type]="hide() ? 'password' : 'text'" required>
+
                         <button
                         type="button"
                           mat-icon-button
@@ -43,7 +44,7 @@
                           <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                        
-                        <mat-error *ngIf="isInvalid('pass1')">{{ getErrorMessage('pass1') }}</mat-error>
+                        <mat-error style="color: red;" *ngIf="isInvalid('pass1')">{{ getErrorMessage('pass1') }}</mat-error>
 
 
                         
@@ -66,11 +67,11 @@
                         >
                           <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="isInvalid('pass2')">{{ getErrorMessage('pass2') }}</mat-error>
+                        <mat-error style="color: red;" *ngIf="isInvalid('pass2')">{{ getErrorMessage('pass2') }}</mat-error>
            
                       
                       </mat-form-field>
-                      <div *ngIf="userForm.hasError('passwordsMismatch')" class="error-message">
+                      <div style="color: red;" *ngIf="userForm.hasError('passwordsMismatch')" >
                         Passwords do not match!
                       </div>
                                  
@@ -79,10 +80,10 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>Phone Number</mat-label>
                         <input formControlName="phone"  name="phone" type="number" matInput placeholder="+91 6709290202" value="" required>
-                        <p *ngIf="phoneControl?.invalid && phoneControl?.touched" style="color: red;">
+                        <p *ngIf="phoneControl?.invalid && phoneControl?.touched " style="color: red;">
                             {{ phoneControl?.hasError('required') ? 'Phone number is required' : 'Phone number must be exactly 10 digits' }}
                           </p>
-
+ 
                     </mat-form-field>
                          
                    
@@ -107,7 +108,8 @@
                     <section class="example-section1 p-2 bd-highlight">
                         <span class="example-list-section">
                           <mat-checkbox
-                          
+                            
+                          formControlName="hobbies" 
 
                             class="example-margin"
                             [checked]="task().completed"
@@ -122,7 +124,6 @@
                             @for (subtask of task().subtasks; track subtask; let i = $index) {
                               <li>
                                 <mat-checkbox 
-                                formControlName="hobbies" 
 
                                [checked]="subtask.completed" (change)="update($event.checked, i)">
                                   {{subtask.name}}

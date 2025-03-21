@@ -1,16 +1,15 @@
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ChangeDetectionStrategy, Component, computed, signal} from '@angular/core';
+import { Component, computed, signal} from '@angular/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {FormControl,FormGroupDirective,NgForm,Validators,FormsModule,ReactiveFormsModule, NgModel, FormBuilder} from '@angular/forms';
+import {FormControl,FormGroupDirective,NgForm,Validators,ReactiveFormsModule, FormBuilder} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { FormGroup  } from '@angular/forms';
-import { AbstractControl } from '@angular/forms';
-import { ValidationErrors } from '@angular/forms';
+
 export interface Task {
   name: string;      
   completed: boolean;
@@ -29,19 +28,21 @@ interface Food {
 }
 @Component({
   selector: 'app-register-form-rf,select-overview-example,input-overview-example,input-error-state-matcher-example',
-  imports: [ReactiveFormsModule, CommonModule,MatIconModule,MatButtonModule,MatSelectModule,MatCheckboxModule,MatFormFieldModule,MatInputModule],
+  imports: [ReactiveFormsModule, CommonModule, MatIconModule,MatButtonModule,MatSelectModule,MatCheckboxModule,MatFormFieldModule,MatInputModule],
   templateUrl: './register-form-rf.component.html',
   styleUrl: './register-form-rf.component.css'
+  
 })
 
 
 
 export class RegisterFormRFComponent {
   userForm: FormGroup;
+
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['',[Validators.required,Validators.email]],
       pass1:['',[Validators.required,Validators.minLength(6)]],
       pass2:['',[Validators.required]],
 
@@ -49,7 +50,7 @@ export class RegisterFormRFComponent {
       gender: ['', [Validators.required]],
       hobbies:[[], [Validators.required]],
       country:['', [Validators.required]]
-
+           
     },
     { validators: this.passwordsMatchValidator });
   
@@ -63,6 +64,7 @@ export class RegisterFormRFComponent {
 
   isInvalid(field: string): boolean {
     return this.userForm.controls[field].invalid && this.userForm.controls[field].touched;
+
   }
 
   getErrorMessage(field: string): string {
@@ -76,19 +78,13 @@ export class RegisterFormRFComponent {
       return 'Passwords do not match';
     }
     return '';
+
   }
-
-
-
-
 
   get phoneControl() {
     return this.userForm.get('phone');
+
   }
-
-
-
-
 
   onSubmit() {
     console.log('submit button is clicked');
@@ -99,8 +95,8 @@ export class RegisterFormRFComponent {
     }
   }
   
-  selected = 'none';
-   worderror:boolean=false;
+    selected = 'none';
+    worderror:boolean=false;
     filltheformerror:boolean=false;
   
     emailFormControl = new FormControl('', [Validators.required, Validators.email]);
